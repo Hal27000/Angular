@@ -1,0 +1,77 @@
+<div  [formGroup]="productForm" #formDirective="ngForm" (ngSubmit)="onSubmit(formDirective)">
+
+    <mat-form-field appearance="outline">
+        <mat-label>Task</mat-label>
+        <!-- <input matInput formControlName="taskName" placeholder="Add a Task" type="text" name="" id=""> -->
+        <input matInput [formControl]="taskNameForm" placeholder="Add a Task" type="text" name="" id="">
+        <!-- <mat-error *ngIf="taskNameForm.touched"> errore</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Choose a date</mat-label>
+        <input matInput formControlName="date" [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error> errore</mat-error>
+    </mat-form-field>        
+        
+    <mat-checkbox formControlName="reminder" class="example-margin">Set Reminder</mat-checkbox>
+    
+
+    <!-- <mat-form-field appearance="outline">
+        <mat-select placeholder="Category">
+            <mat-option value="Fruits" >
+                Fruits
+            </mat-option>
+            <mat-option value="Vegetables" >
+                Vegetables
+            </mat-option>
+            <mat-option value="Electronic" >
+                Electronic
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    
+      
+    <label id="example-radio-group-label"> <h1>Radio Buttons</h1></label>
+    <mat-radio-group class="example-radio-group"> 
+        <mat-radio-button *ngFor="let item of randomList" class="example-radio-button" [value]="item">
+            {{item}}
+        </mat-radio-button>
+    </mat-radio-group>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Price</mat-label>
+        <input matInput placeholder="Add a Task" type="number" name="" id="">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Comment</mat-label>
+        <textarea matInput></textarea>
+    </mat-form-field> -->
+    
+    
+
+    <!-- <div class="form-control">
+        <label for="text">Task</label>
+        <input type="text" name="text" [(ngModel)]="text" id="text" 
+            placeholder="Add Task">
+    </div>
+    <div class="form-control">
+        <label for="Day">Day & Time</label>
+        <input type="text" name="day" [(ngModel)]="day" id="day" 
+            placeholder="Add Day & Time">
+    </div>
+    <div class="form-control form-control-check">
+        <label for="Day">Set Reminder</label>
+        <input type="checkbox" name="reminder" [(ngModel)]="reminder" id="reminder" 
+           >
+    </div> -->
+    
+    <button type="submit" class="btn "
+    (click)="onSubmit(formDirective)">Submit</button>
+
+    <input type="submit" value="Save Task"  class="btn btn-block">
+
+</div>

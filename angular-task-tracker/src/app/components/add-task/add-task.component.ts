@@ -1,5 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Task } from 'src/app/Task';
+import { Subscription } from 'rxjs';
+import { TaskService } from 'src/app/services/task.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-task',
@@ -7,17 +10,25 @@ import { Task } from 'src/app/Task';
   styleUrls: ['./add-task.component.css']
 })
 export class AddTaskComponent implements OnInit {
-  @Output() onAddTask: EventEmitter<Task> = new EventEmitter()
+  
   text!:string
   day!:string
   reminder:boolean = false;
+  productForm!: FormGroup;  
+  //showAddTask: boolean =true;
+  subscription!: Subscription;
 
-  constructor() { }
+  constructor( private taskService:TaskService, private formBuilder:FormBuilder) {
+    
+   }
+   
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
+    
   }
 
   onSubmit(){
+    
     if(!this.text){
       alert('please add a task')
       return;
@@ -28,7 +39,9 @@ export class AddTaskComponent implements OnInit {
       reminder: this.reminder
     }
 
-    this.onAddTask.emit(newTask);
+    
+
+    //this.taskService.addTask(newTask).subscribe(response => console.log(response))
 
     this.text=''
     this.day=''

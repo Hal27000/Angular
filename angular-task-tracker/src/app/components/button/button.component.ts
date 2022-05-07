@@ -11,15 +11,12 @@ export class ButtonComponent implements OnInit {
 
   @Input() text!: string;
   @Input() color!: string;
-  @Output() btnClick = new EventEmitter()
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onClick(){
-    this.btnClick.emit()
-  }
+  
 
 }
