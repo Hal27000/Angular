@@ -1,8 +1,8 @@
 <header>
-    <h1>{{title}}</h1>
-    <app-button *ngIf="!hasRoute('/about')"
-        color="{{hasRoute('/new') ? 'red': 'green'}} "
-        text="{{hasRoute('/new') ? 'Back': 'Add +'}} "       
-        routerLink="{{hasRoute('/new') ? '/': '/new'}}"
+    
+    <app-button 
+        color="{{hasRoute(urlHome) ? 'green': 'red'}} "
+        text="{{(hasRoute(urlHome) ? 'Add +': 'Back')|translate}} "    
+        routerLink="{{hasRoute(urlHome) ? '/app/new': urlHome}}"
     ></app-button>
 </header>

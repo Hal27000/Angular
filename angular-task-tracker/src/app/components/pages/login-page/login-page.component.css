@@ -1,0 +1,29 @@
+h1 {
+    margin-top:5%;
+    margin-left: 5%;
+    margin-right: 63%;
+    background-color: #3D2892;
+    padding: 15px;
+    font-size: 60px; 
+    color: white; 
+    font-weight: bold;
+}
+
+h1::after {
+    position: absolute;
+    content: ">";
+    bottom: 1;
+    width: 40px;
+    height: 30px;
+    color: rgb(209, 22, 22);
+}
+
+/* h1::after {
+    content: "-";
+    width: 40px;
+    height: 30px;
+    color: rgb(209, 22, 22);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+} */

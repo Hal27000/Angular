@@ -1,0 +1,28 @@
+<div style="display: flex; height: 100vh; background-color: #C3CDE5; align-items: center; justify-content: center;">
+    <div class="scatola" id="logo">
+        <h1>RiskOut</h1>
+    </div>
+    <div [formGroup]="SignUpForm" class="scatola" id="form">
+        <h2>{{'Sign Up'|translate}}</h2>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input formControlName="username"  matInput type="text">
+                        <mat-error *ngIf="SignUpForm.controls['username'].hasError('required')">{{'Username required'| translate}}</mat-error>
+                        <mat-error *ngIf="SignUpForm.controls['username'].hasError('email')">{{'Insert a valid email address'|translate}}</mat-error>
+
+        </mat-form-field>
+        <span style="padding: 5px;"></span>
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input formControlName="password" matInput type="password">
+            <mat-error *ngIf="SignUpForm.controls['password'].hasError('required')">E' necessaria una password</mat-error>
+
+        </mat-form-field>
+        <span style="padding: 5px;"></span>
+        <button mat-raised-button (click)="onSignUp()" color="primary">{{'Register'|translate}}</button>
+        
+        <p style="margin-top: 20px; margin-bottom: 10px;">{{'You already have an account?'|translate}}</p>
+        <a routerLink="/">{{'Login'|translate}}</a>
+    </div>
+</div>

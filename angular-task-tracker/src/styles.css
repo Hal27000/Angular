@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
 
+
+
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -10,15 +11,37 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh !important;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
 .container {
-  max-width: 500px;
+  border: 1px dotted #000;
+  
+  flex: auto;
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
-  border: 1px solid steelblue;
-  padding: 30px;
-  border-radius: 5px;
+  
+  
 }
+
+.mat-drawer-inner-container{
+  display:  flex;
+  flex-direction: column;
+}
+
+.p-toast .p-toast-message.p-toast-message-error {
+  background-color: #ffffffff !important;
+  color: #B71C1C !important;
+}
+
 .btn {
   display: inline-block;
   background: #000;
@@ -44,7 +67,10 @@ body {
   width: 100%;
 }
 
-.form-control {
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/*.form-control {
   margin: 20px 0;
 }
 
@@ -52,13 +78,13 @@ body {
   display: block;
 }
 
-.form-control input {
+ .form-control input {
   width: 100%;
   height: 40px;
   margin: 5px;
   padding: 3px 7px;
   font-size: 17px;
-}
+} 
 
 .form-control-check {
   display: flex;
@@ -73,6 +99,4 @@ body {
 .form-control-check input {
   flex: 2;
   height: 20px;
-}
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+} */

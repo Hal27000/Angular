@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from 'src/app/services/task.service';
-import { Task } from 'src/app/Task';
+import { Task } from 'src/app/models/Task';
+import { MessageService } from 'primeng/api';
+
 
 @Component({
   selector: 'app-tasks',
@@ -11,7 +13,8 @@ export class TasksComponent implements OnInit {
 
   tasks: Task[] = []
 
-  constructor(private taskService: TaskService) { }
+  constructor(private taskService: TaskService,
+    private messageService: MessageService) { }
 
   ngOnInit(): void {
 
@@ -44,5 +47,9 @@ export class TasksComponent implements OnInit {
       (task)=> (this.tasks.push(task))
     );
     
+  }
+
+  addSingle() {
+    this.messageService.add({severity:'success', summary:'Service Message', detail:'Via MessageService'});
   }
 }

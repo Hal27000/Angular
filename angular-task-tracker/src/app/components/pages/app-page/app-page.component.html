@@ -1,0 +1,55 @@
+
+<mat-sidenav-container hasBackdrop="true">
+
+
+    <mat-sidenav mode="side" class="sidenav" #sidenav>
+        
+            <div class="sidenav-header">
+              <h1 style="text-align: center; color: white;">RiskOut</h1>
+            </div>
+        
+          <div class="sidenav-content">
+            <button mat-button (click)="sidenav.toggle()" routerLink="/app/home">{{'Home'|translate}}</button>
+            <button mat-button (click)="sidenav.toggle()" routerLink="/app/new">{{'Add a Task'|translate}}</button>
+            <button mat-button (click)="sidenav.toggle()" routerLink="/app/contact">{{'Contact Us'|translate}}</button>
+            <button mat-button (click)="sidenav.toggle()" routerLink="/app/404">{{'404 Page'|translate}}</button>
+          </div>
+
+          
+          
+        
+    </mat-sidenav>
+
+    <mat-sidenav-content class="content">
+      
+        
+        <mat-toolbar color="primary">
+            <button (click)="sidenav.toggle()" mat-icon-button aria-label="Example icon-button with menu icon">
+              <mat-icon>menu</mat-icon>
+            </button>
+            <h1 style="padding-left: 16px;">RiskOut</h1>
+            <span class="example-spacer"></span>
+
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+              <p>{{lang.toUpperCase()}}</p>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button *ngFor="let lingua of lingue" (click)="funzione(lingua)" mat-menu-item>
+                <span>{{lingua.toUpperCase()}}</span>
+              </button>      
+            </mat-menu>
+
+
+            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+              <mat-icon (click)="logOut()" >logout</mat-icon>
+            </button>
+          </mat-toolbar>
+          <p-toast></p-toast>
+          
+
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+    
+</mat-sidenav-container>
+
+

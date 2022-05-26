@@ -1,0 +1,38 @@
+<div style="display: flex; flex-direction: row; height: 100vh;">
+
+    <div [formGroup]="loginForm" style="background-color: #F0F1F5; 
+    display: flex; flex-direction: column; align-items: center; flex: 1 0 35%; justify-content: center;">
+
+        <h2>{{'Login'| translate}}</h2>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input formControlName="username"  matInput type="text">
+            <mat-error *ngIf="loginForm.controls['username'].hasError('required')">E' necessario un username</mat-error>
+            
+        </mat-form-field>
+        <span style="padding: 5px;"></span>
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input formControlName="password" (keyup)="handleKeyUp($event)" matInput type="password">
+            <mat-error *ngIf="loginForm.controls['password'].hasError('required')">E' necessaria una password</mat-error>
+        </mat-form-field>
+        <span style="padding: 10px;"></span>
+        <button mat-raised-button (click)="onSubmit()" type="submit"  color="primary">{{'Login'| translate}}</button>
+
+        <p style="margin-top: 20px; margin-bottom: 10px;">{{"Don't have an account?" | translate}}</p>
+        <a routerLink="/signup">{{"Sign Up Here"|translate}}</a>
+        <app-footer style="position:absolute; bottom:0; padding: 30px;"></app-footer>
+    </div>
+
+    <div style="flex: 1 0 65%; background-image:url('../../../../assets/background.jpg');
+     background-position:center ; background-repeat: no-repeat;
+     background-size: cover;">
+        
+        <div>
+            <h1 >RiskOut</h1>
+        </div>
+    </div>
+    
+    
+</div>

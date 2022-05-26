@@ -1,6 +1,6 @@
-<h1 mat-dialog-title>Your Task has been saved</h1>
-<div mat-dialog-content>This dialog showcases the title, close, content and actions elements.</div>
+<h1 mat-dialog-title>{{title|translate}}</h1>
+
 <div mat-dialog-actions>
-  <button mat-button mat-dialog-close>Add another Task</button>
-  <button mat-button mat-dialog-close routerLink="/"> Go back Home</button>
+  <button mat-button mat-dialog-close  routerLink="/app/new">{{'Add another Task'|translate}}</button>
+  <button mat-button mat-dialog-close routerLink="/app/home">{{'Back to Home'|translate}}</button>
 </div>

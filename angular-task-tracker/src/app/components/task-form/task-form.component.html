@@ -1,25 +1,53 @@
-<div  [formGroup]="productForm" #formDirective="ngForm" (ngSubmit)="onSubmit(formDirective)">
+<div style="padding: 30px; margin: 30px auto;">
+    <app-header></app-header>
+    <h2 *ngIf="isAddMode">{{"Add Task"|translate}}</h2>
+    <h2 *ngIf="!isAddMode">{{"Edit Task"|translate}}</h2>
 
-    <mat-form-field appearance="outline">
-        <mat-label>Task</mat-label>
-        <!-- <input matInput formControlName="taskName" placeholder="Add a Task" type="text" name="" id=""> -->
-        <input matInput [formControl]="taskNameForm" placeholder="Add a Task" type="text" name="" id="">
-        <!-- <mat-error *ngIf="taskNameForm.touched"> errore</mat-error> -->
-    </mat-form-field>
+    <div style="flex-direction: column;" [formGroup]="productForm">
 
-    <mat-form-field appearance="outline">
-        <mat-label>Choose a date</mat-label>
-        <input matInput formControlName="date" [matDatepicker]="picker">
-        <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-        <mat-error> errore</mat-error>
-    </mat-form-field>        
+        <mat-form-field appearance="outline">
+            <mat-label>Task</mat-label>
+            <!-- <input matInput formControlName="taskName" placeholder="Add a Task" type="text" name="" id=""> -->
+            <input matInput formControlName="taskName"  type="text" name="" id="">
+            <mat-hint *ngIf="productForm.controls['taskName'].hasError('maxlength')">{{'250 characters max'|translate}}</mat-hint>
+            
+            <mat-error *ngIf="productForm.controls['taskName'].hasError('maxlength')">{{'250 characters max'|translate}}</mat-error>
+            <mat-error *ngIf="productForm.controls['taskName'].hasError('required')">{{'Insert a task'|translate}}</mat-error>
+            
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>{{"Choose a date"|translate}}</mat-label>
+            <input matInput formControlName="date" [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error>{{"Insert a date"|translate}}</mat-error>
+        </mat-form-field>     
+           
+        <mat-checkbox style="padding: 5px  ;" formControlName="reminder" class="example-margin">{{"Set Reminder"|translate}}</mat-checkbox>
+
+        <input style="padding: 5px ;" type="file" accept=".docx, .pdf" formControlName="image" (change)="onFileSelected($event)">
         
-    <mat-checkbox formControlName="reminder" class="example-margin">Set Reminder</mat-checkbox>
-    
+        <button *ngIf="isAddMode" type="submit" class="btn btn-block"
+        (click)="onSubmit()">{{"Save Task"|translate}}</button>
 
-    <!-- <mat-form-field appearance="outline">
+        <button *ngIf="!isAddMode" type="submit" class="btn btn-block"
+        (click)="onSubmit()">{{"Update Task"|translate}}</button>
+
+        <!-- <p>{{productForm.status}}</p>
+        <p>{{productForm.controls['taskName'].hasError('maxlength')}}</p> -->
+    </div>
+
+    <!-- <p>{{productForm.getRawValue() | json}}</p>
+    
+    
+    <p>{{productForm.controls['taskName'].hasError('required') }}</p>
+    <p>{{productForm.controls['taskName'].value.trim() }}</p> -->
+
+</div>
+
+ <!-- <mat-form-field appearance="outline">
         <mat-select placeholder="Category">
             <mat-option value="Fruits" >
                 Fruits
@@ -49,11 +77,9 @@
     <mat-form-field appearance="outline">
         <mat-label>Comment</mat-label>
         <textarea matInput></textarea>
-    </mat-form-field> -->
-    
-    
-
-    <!-- <div class="form-control">
+    </mat-form-field> 
+   
+     <div class="form-control">
         <label for="text">Task</label>
         <input type="text" name="text" [(ngModel)]="text" id="text" 
             placeholder="Add Task">
@@ -68,10 +94,3 @@
         <input type="checkbox" name="reminder" [(ngModel)]="reminder" id="reminder" 
            >
     </div> -->
-    
-    <button type="submit" class="btn "
-    (click)="onSubmit(formDirective)">Submit</button>
-
-    <input type="submit" value="Save Task"  class="btn btn-block">
-
-</div>

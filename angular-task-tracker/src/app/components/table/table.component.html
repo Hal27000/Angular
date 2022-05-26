@@ -1,0 +1,60 @@
+<p-toast position="bottom-center" key="c" (onClose)="onReject()" [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div class="p-flex p-flex-column" style="flex: 1">
+            <div class="p-text-center">
+                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                <h4>{{message.summary}}</h4>
+                <p>{{message.detail}}</p>
+            </div>
+            <div style="display: flex; flex-direction:row; align-items: center; justify-content: center;">
+                
+                    <button color="primary" type="button" style="margin: 15px;" mat-flat-button (click)="onConfirm()" >Yes</button>
+                    <button type="button" style="margin: 15px;" mat-flat-button (click)="onReject()">No</button>
+                
+            </div>
+        </div>
+    </ng-template>
+</p-toast>
+
+
+<p-table [value]="tasks" >
+    <ng-template pTemplate="header">
+        <tr>
+            <th *ngFor="let col of cols">
+                {{col.header | translate}}
+            </th>
+            <th>{{'Actions'|translate}}</th>
+            
+            
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-task>
+        <tr>
+            
+            <td>{{task.id}}</td>
+            <td>{{task.taskName}}</td>
+            <td>{{task.date | date}}</td>
+            
+            <td>
+                <mat-slide-toggle checked={{task.reminder}} (change)="toggleReminder(task)" >
+                    
+                </mat-slide-toggle>
+            </td>
+            
+            <td>
+                <button mat-icon-button routerLink="../edit/{{task.id}}">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            
+                <button color="warn"  mat-icon-button (click)="alertTask(task)">
+                    <mat-icon color="warn">delete</mat-icon>
+                </button>
+
+                <button *ngIf="task.image" mat-icon-button (click)="attachment(task.image)" color="primary">
+                    <mat-icon color="primary">attachment</mat-icon>
+                    
+                </button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

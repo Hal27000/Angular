@@ -1,0 +1,40 @@
+{
+    "Login":"Accedi",
+    "Sign Up":"Registrati",
+    "Username":"Nome utente",
+    "Register":"Registrati",
+    "You already have an account?":"Hai già un account?",
+    "Username required":"E' necessario un username",
+    "Don't have an account?":"Non hai un account?",
+    "Sign Up Here":"Registrati qui",
+    "Insert a valid email address":"Inserire un indirizzo email valido",
+
+    "Task Name":"Nome Task",
+    "Date":"Data",
+    "Reminder":"Promemoria",
+    "Actions":"Azioni",
+
+    "Add +":"Aggiungi +",
+    "Back":"Indietro",
+    "Add Task":"Aggiungi un Task",
+    "Edit Task":"Modifica task",
+    "Insert a task":"Inserire un task",
+    "250 characters max":"Max 250 caratteri",
+    "Choose a date":"Scegli una data",
+    "Set Reminder":"Aggiungi Promemoria",
+    "Save Task":"Salva Task",
+    "Update Task":"Aggiorna Task",
+
+
+    "Your Task has been saved":"Il tuo Task è stato salvato",
+    "Add another Task":"Aggiungi un altro task",
+    "Back to Home":"Torna alla Home",
+
+    "Home":"Home",
+    "Add a Task":"Aggiungi Task",
+    "Contact Us":"Contattaci",
+    "404 Page":"Pagina 404",
+
+    "Contact Us!":"Contattaci!",
+    "We'll be back to you in the blink of an eye":"Saremo da te in un batter d'occhio"
+}

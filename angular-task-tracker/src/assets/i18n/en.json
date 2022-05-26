@@ -1,0 +1,40 @@
+{
+    "Login":"Login",
+    "Sign Up":"Sign Up",
+    "Username":"Username",
+    "Register":"Register",
+    "You already have an account?":"You already have an account?",
+    "Username required":"Username required",
+    "Don't have an account?":"Don't have an account?",
+    "Sign Up Here":"Sign Up Here",
+    "Insert a valid email address":"Insert a valid email address",
+
+    "Task Name":"Task Name",
+    "Date":"Date",
+    "Reminder":"Reminder",
+    "Actions":"Actions",
+
+    "Add +":"Add +",
+    "Back":"Back",
+    "Add Task":"Add Task",
+    "Edit Task":"Edit Task",
+    "Insert a task":"Insert a task",
+    "250 characters max":"250 characters max",
+    "Choose a date":"Choose a date",
+    "Set Reminder":"Set Reminder",
+    "Save Task":"Save Task",
+    "Update Task":"Update Task",
+
+
+    "Your Task has been saved":"Your Task has been saved",
+    "Add another Task":"Add another Task",
+    "Back to Home":"Back to Home",
+
+    "Home":"Home",
+    "Add a Task":"Add a Task",
+    "Contact Us":"Contact Us",
+    "404 Page":"404 Page",
+
+    "Contact Us!":"Contact Us!",
+    "We'll be back to you in the blink of an eye":"We'll be back to you in the blink of an eye"
+}

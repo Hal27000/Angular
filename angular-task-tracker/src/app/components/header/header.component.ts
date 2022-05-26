@@ -11,7 +11,9 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  title: string = 'Task tracker';
+  testo = 'prova'
+  urlHome= '/app/home'
+  
   showAddTask!:boolean;
   subscription!: Subscription;
 
