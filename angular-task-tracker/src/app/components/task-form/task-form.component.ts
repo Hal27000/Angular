@@ -4,10 +4,10 @@ import { TaskService } from 'src/app/services/task.service';
 import { FormBuilder, FormControl, FormGroup,  FormGroupDirective,  Validators } from '@angular/forms';
 import { Task } from 'src/app/models/Task';
 import { MatDialog } from '@angular/material/dialog'
-import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { MessageService } from 'primeng/api';
+import { ConfirmDialogService } from 'src/app/services/confirm-dialog.service';
 
 
 @Component({
@@ -25,7 +25,8 @@ export class TaskFormComponent implements OnInit {
   constructor(
     private route: ActivatedRoute, private router: Router,
     private taskService:TaskService, private formBuilder:FormBuilder,
-    public dialog: MatDialog, private http: HttpClient, private messageService: MessageService
+    public dialog: MatDialog, private http: HttpClient, private messageService: MessageService,
+    private dialogService: ConfirmDialogService
   ) { }
 
   ngOnInit(): void {
@@ -34,7 +35,7 @@ export class TaskFormComponent implements OnInit {
       taskName:['', [Validators.required, Validators.maxLength(250)]],
       date:['',Validators.required],
       reminder:[false ],
-      image:['']
+      file:['']
     })
     
     this.id = this.route.snapshot.params['id'];
@@ -58,7 +59,7 @@ export class TaskFormComponent implements OnInit {
       taskName: this.productForm.value.taskName,
       date: this.productForm.value.date,
       reminder: this.productForm.value.reminder,
-      image:this.productForm.value.image     
+      file:this.productForm.value.file     
     }    
 
     if(this.productForm.valid){
@@ -70,17 +71,27 @@ export class TaskFormComponent implements OnInit {
       }      
       this.productForm.updateValueAndValidity()
       console.log("RESET")
-      this.productForm.reset()
+      
       console.log(this.productForm) 
       
       if (this.isAddMode) {
-        this.addSingle('Success','The task has been saved')
-        this.dialog.open(ConfirmDialogComponent);
+
+        const options = {
+          title: 'Your Task has been saved',
+          message: '',
+          cancelText: 'Back to Home',
+          confirmText: 'Add another Task'
+        }
+
+
+        this.addSinglePtoast('Success','The task has been saved')
+        this.dialogService.open(options)
+        
       } else {
-        this.addSingle('Success','The task has been updated')
+        this.addSinglePtoast('Success','The task has been updated')
         this.router.navigate(['app/home'])
       }
-
+      this.productForm.reset()
       
     }else{
       this.productForm.markAllAsTouched()
@@ -101,7 +112,10 @@ export class TaskFormComponent implements OnInit {
     
     const boh = this.toBase64(file) 
     boh.then((result:string) =>{
-      this.productForm.value.image = result/* .slice((result.indexOf(',')+1)) */
+      console.log('we')
+      console.log(this.productForm.value.file)
+      this.productForm.value.file = result/* .slice((result.indexOf(',')+1)) */
+      console.log(this.productForm.value.file)
     })   
     
   }
@@ -118,17 +132,6 @@ export class TaskFormComponent implements OnInit {
   };
 
 
-
-
-
-
-
-
-
-
-
-
-
   private addTask(newTask: Task){
     this.taskService.addTask(newTask).subscribe()     
   }
@@ -143,7 +146,7 @@ export class TaskFormComponent implements OnInit {
         console.log('UPDATE COMPLETATO')        
   }
 
-  addSingle(title:any, detail:string) {
+  addSinglePtoast(title:any, detail:string) {
     this.messageService.add({severity:'success', summary: title, detail:detail});
   }
 

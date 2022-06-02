@@ -3,42 +3,55 @@
 
     <div [formGroup]="contactForm" class="contact-form">
 
-        <mat-form-field appearance="fill">
-            <mat-label>{{'Name'|translate}}</mat-label>
-            <input matInput formControlName="name" type="text" name="" id="">
-            <mat-error *ngIf="contactForm.controls['name'].hasError('required')">
-                {{'Insert your name'|translate}}
-            </mat-error>
-        </mat-form-field>
-            
+        <h1>{{"Contact Us!"|translate}}</h1>
+        <p style="text-align: left;">{{"We'll be back to you in the blink of an eye"|translate}}</p>
+        
+            <div style="display: flex; align-items: center; flex-direction: column;">
+                
+                <mat-form-field appearance="fill">
+                    <mat-label>{{'Name'|translate}}</mat-label>
+                    <input matInput formControlName="name" type="text" name="" id="">
+                    <mat-error *ngIf="contactForm.controls['name'].hasError('required')">
+                        {{'Insert your name'|translate}}
+                    </mat-error>
+                </mat-form-field>
+                    
 
-        <mat-form-field appearance="fill">
-            <mat-label>{{'E-mail'|translate}}</mat-label>
-            <input matInput formControlName="email" type="text" name="" id="">    
-            <mat-error *ngIf="contactForm.controls['email'].hasError('required')">
-                {{'Insert your email'|translate}}
-            </mat-error>
-            <mat-error *ngIf="contactForm.controls['email'].hasError('email')">
-                {{'Insert a valid email address'|translate}}
-            </mat-error>
-        </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>{{'E-mail'|translate}}</mat-label>
+                    <input matInput formControlName="email" type="text" name="" id="">    
+                    <mat-error *ngIf="contactForm.controls['email'].hasError('required')">
+                        {{'Insert your email'|translate}}
+                    </mat-error>
+                    <mat-error *ngIf="contactForm.controls['email'].hasError('email')">
+                        {{'Insert a valid email address'|translate}}
+                    </mat-error>
+                </mat-form-field>
 
 
-        <mat-form-field appearance="fill">
-            <mat-label>{{'Message'|translate}}</mat-label>
-            <input matInput formControlName="message" type="text" name="" id="">    
-            <mat-error *ngIf="contactForm.controls['message'].hasError('required')">
-                {{'Write here your enquiry'|translate}}
-            </mat-error>
-        </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>{{'Message'|translate}}</mat-label>
+                    
+                    <textarea formControlName="message" matInput cols="30" rows="5"></textarea>
+                        
+                    <mat-error *ngIf="contactForm.controls['message'].hasError('required')">
+                        {{'Write here your enquiry'|translate}}
+                    </mat-error>
+                </mat-form-field>
 
-        <button color="warn" (click)="onSubmit()" mat-raised-button type="submit">{{'Send E-mail'|translate}}</button>
+                <button color="warn" (click)="onSubmit()" mat-raised-button type="submit">{{'Send E-mail'|translate}}</button>
+
+            </div>
+        
 
     </div>
+    
+    <div style="
+        align-items: center; justify-content: center; display: flex;" class="contact-image">
+        
+        <img src="../../../../assets/contact.png" alt="" srcset="">
 
-    <div style="width: 1000px; justify-content:center; align-items:center">
-        <h1 style="font-size: 60px; text-align: center;">{{"Contact Us!"|translate}}</h1>
-        <p style="text-align: center;">{{"We'll be back to you in the blink of an eye"|translate}}</p>
+        
     </div>
 
 </div>

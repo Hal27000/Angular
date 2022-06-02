@@ -1,35 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators, ValidatorFn } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { ConfirmDialogService } from 'src/app/services/confirm-dialog.service';
 
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.css']
+  styleUrls: ['./login-page.component.css','./login-page-mobile.component.css']
 })
 export class LoginPageComponent implements OnInit {
 
-  loginForm!: FormGroup;
+  loginForm: FormGroup = this.formBuilder.group({
+    username:['', {
+      validators:[Validators.required, this.loginValidator],
+      updateOn:'change'}  
+      ],
+    password:['',[Validators.required]],
+    
+  })
+  
   storedData!: string;
-  msg=''
-  loginUserData = {}
 
   constructor(
     private formBuilder:FormBuilder,
     private auth: AuthService,
     private route: Router,
-    private localStorageService: LocalStorageService) { }
+    private localStorageService: LocalStorageService,
+    private dialogService: ConfirmDialogService) { }
 
   ngOnInit(): void {
 
-    this.loginForm = this.formBuilder.group({
-      username:['',[Validators.required]],
-      password:['',[Validators.required]]
-    })
-
-    /* if(this.onGetData) */
+    
 
   }
 
@@ -45,21 +48,33 @@ export class LoginPageComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.loginForm.value)
+    this.loginForm.updateValueAndValidity()
 
-    if(this.loginForm.status=== 'VALID'){
+    const options = { 
+      title: 'Error',
+      message: 'Incorrect username or password',
+      
+      confirmText: 'Ok'
+    };
 
     
 
-    if(this.loginForm.get('username')!.value === 'admin' && this.loginForm.get('password')!.value === 'innovery' ){
-      this.onSetData()
-      this.route.navigate(['/app/home'])
-    } else{
-      alert('credenziali errate')
+    if(this.loginForm.status=== 'VALID'){   
+
+      if(this.loginForm.get('username')!.value === 'admin' && this.loginForm.get('password')!.value === 'innovery' ){
+        this.onSetData()
+        this.route.navigate(['/app/home'])
+      }else{
+        
+        
+        this.dialogService.open(options)
+        
+      }
+
+
+    }else{
+      this.loginForm.markAllAsTouched()
     }
-  }else{
-    this.loginForm.markAllAsTouched()
-  }
     
   }
 
@@ -70,7 +85,7 @@ export class LoginPageComponent implements OnInit {
     );
   }
 
-  onGetData() {
+  /* onGetData() {
     this.storedData = this.localStorageService.getItem(this.loginForm.get('username')!.value);
   }
 
@@ -80,6 +95,22 @@ export class LoginPageComponent implements OnInit {
 
   onClearData() {
     this.localStorageService.clear();
+  } */
+
+  loginValidator(control: FormControl) : {[s:string]:boolean} | null {
+    
+    if(control.value !== 'admin'){
+
+      console.log('ERROR')
+
+      return {'loginValidator':true}
+
+    }
+
+    console.log('nope')
+    return null
+
+    
   }
 
 }

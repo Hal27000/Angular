@@ -27,7 +27,15 @@
            
         <mat-checkbox style="padding: 5px  ;" formControlName="reminder" class="example-margin">{{"Set Reminder"|translate}}</mat-checkbox>
 
-        <input style="padding: 5px ;" type="file" accept=".docx, .pdf" formControlName="image" (change)="onFileSelected($event)">
+        
+        <button (click)="fileInput.click()" mat-icon-button >
+            <mat-icon  #tooltip="matTooltip" matTooltip="Add an attachment" matTooltipPosition="right"
+                class="mat-18">attach_file</mat-icon>
+        </button>
+        <input hidden style="padding: 5px ;" type="file" accept=".docx, .pdf" formControlName="file" #fileInput (change)="onFileSelected($event)">
+        <span class="file-name">{{productForm.controls['file'].value}}</span>
+        
+        
         
         <button *ngIf="isAddMode" type="submit" class="btn btn-block"
         (click)="onSubmit()">{{"Save Task"|translate}}</button>

@@ -21,16 +21,7 @@ body {
   flex: 1 1 auto;
 }
 
-.container {
-  border: 1px dotted #000;
-  
-  flex: auto;
-  margin: 30px auto;
-  overflow: auto;
-  min-height: 300px;
-  
-  
-}
+
 
 .mat-drawer-inner-container{
   display:  flex;

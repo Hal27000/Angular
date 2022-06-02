@@ -1,6 +1,6 @@
-<h1 mat-dialog-title>{{title|translate}}</h1>
-
+<h1 mat-dialog-title>{{data.title|translate}}</h1>
+<mat-dialog-content>{{data.message}}</mat-dialog-content>
 <div mat-dialog-actions>
-  <button mat-button mat-dialog-close  routerLink="/app/new">{{'Add another Task'|translate}}</button>
-  <button mat-button mat-dialog-close routerLink="/app/home">{{'Back to Home'|translate}}</button>
+  <button mat-button mat-dialog-close>{{data.confirmText|translate}}</button>
+  <button mat-button mat-dialog-close routerLink="/app/home">{{data.cancelText|translate}}</button>
 </div>

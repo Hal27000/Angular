@@ -12,7 +12,7 @@
             <button mat-button (click)="sidenav.toggle()" routerLink="/app/home">{{'Home'|translate}}</button>
             <button mat-button (click)="sidenav.toggle()" routerLink="/app/new">{{'Add a Task'|translate}}</button>
             <button mat-button (click)="sidenav.toggle()" routerLink="/app/contact">{{'Contact Us'|translate}}</button>
-            <button mat-button (click)="sidenav.toggle()" routerLink="/app/404">{{'404 Page'|translate}}</button>
+            <!-- <button mat-button (click)="sidenav.toggle()" routerLink="/app/404">{{'404 Page'|translate}}</button> -->
           </div>
 
           
@@ -23,15 +23,16 @@
     <mat-sidenav-content class="content">
       
         
-        <mat-toolbar color="primary">
+        <mat-toolbar style="background-color: #3D2892;">
             <button (click)="sidenav.toggle()" mat-icon-button aria-label="Example icon-button with menu icon">
-              <mat-icon>menu</mat-icon>
+              <mat-icon style="color: white;">menu</mat-icon>
             </button>
-            <h1 style="padding-left: 16px;">RiskOut</h1>
+            
+            <h1 style="padding-left: 16px; color: white;">RiskOut<span style="color: red;">></span> </h1>
             <span class="example-spacer"></span>
 
             <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-              <p>{{lang.toUpperCase()}}</p>
+              <p style="color: white;">{{lang.toUpperCase()}}</p>
             </button>
             <mat-menu #menu="matMenu">
               <button *ngFor="let lingua of lingue" (click)="funzione(lingua)" mat-menu-item>
@@ -41,7 +42,7 @@
 
 
             <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-              <mat-icon (click)="logOut()" >logout</mat-icon>
+              <mat-icon style="color: white;" (click)="logOut()" >logout</mat-icon>
             </button>
           </mat-toolbar>
           <p-toast></p-toast>

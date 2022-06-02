@@ -8,6 +8,7 @@
     "Don't have an account?":"Non hai un account?",
     "Sign Up Here":"Registrati qui",
     "Insert a valid email address":"Inserire un indirizzo email valido",
+    "A confirmation email has been sent to your inbox.":"Un email di conferma è stata inviata alla tua casella di posta", 
 
     "Task Name":"Nome Task",
     "Date":"Data",
@@ -34,6 +35,9 @@
     "Add a Task":"Aggiungi Task",
     "Contact Us":"Contattaci",
     "404 Page":"Pagina 404",
+    "Name":"Nome",
+    "Message":"Messaggio",
+    "Send E-mail":"Invia E-mail",
 
     "Contact Us!":"Contattaci!",
     "We'll be back to you in the blink of an eye":"Saremo da te in un batter d'occhio"

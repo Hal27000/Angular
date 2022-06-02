@@ -43,6 +43,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatCardModule} from '@angular/material/card';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 //Prime
 import {TableModule} from 'primeng/table';
@@ -128,11 +130,14 @@ const appRoutes : Routes = [
     MatSidenavModule,
     MatMenuModule,
     MatSlideToggleModule,
+    MatCardModule,
+    MatTooltipModule,
 
     //PRIMENG----------------------------------------------------------
     TableModule,
     ToastModule
   ],
+  
   providers: [AuthGuard, HttpClient, MessageService],
   bootstrap: [AppComponent]
 })

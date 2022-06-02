@@ -8,6 +8,7 @@
     "Don't have an account?":"Don't have an account?",
     "Sign Up Here":"Sign Up Here",
     "Insert a valid email address":"Insert a valid email address",
+    "A confirmation email has been sent to your inbox.":"A confirmation email has been sent to your inbox.", 
 
     "Task Name":"Task Name",
     "Date":"Date",
@@ -34,6 +35,9 @@
     "Add a Task":"Add a Task",
     "Contact Us":"Contact Us",
     "404 Page":"404 Page",
+    "Name":"Name",
+    "Message":"Message",
+    "Send E-mail":"Send E-mail",
 
     "Contact Us!":"Contact Us!",
     "We'll be back to you in the blink of an eye":"We'll be back to you in the blink of an eye"

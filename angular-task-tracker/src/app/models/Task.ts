@@ -3,5 +3,5 @@ export interface Task {
     taskName: string;
     date: Date;
     reminder: boolean;
-    image: string;
+    file: string;
       }

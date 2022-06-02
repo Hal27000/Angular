@@ -1,12 +1,54 @@
+img {
+    height: 75%;
+    object-fit: cover;
+    width: 75%;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
 .contact{
     align-items: center;
     justify-content: center;
     display: flex;
+    flex-direction: row;
     height: 80vh;
     
 }
 
 .contact-form{
     flex-direction: column;
-    display: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 0 33%;
 }
+
+.contact-image{
+    display: flex;
+    flex: 1 0 67%;
+}
+
+@media all and (max-width: 768px){
+    img {
+        display: none;
+    }
+ 
+    .contact{
+       align-items: center;
+       justify-content: center;
+       display: flex;
+       flex-direction: column-reverse;    
+    }
+
+    .contact-form{
+
+        flex: 1 0 85%;
+    }
+    
+    .contact-image{
+        
+        flex: 1 0 15%;
+    }
+ }

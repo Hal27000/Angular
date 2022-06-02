@@ -36,22 +36,22 @@
             <td>{{task.date | date}}</td>
             
             <td>
-                <mat-slide-toggle checked={{task.reminder}} (change)="toggleReminder(task)" >
+                <mat-slide-toggle #tooltip="matTooltip" matTooltip="Set reminder" matTooltipPosition="right" checked={{task.reminder}} (change)="toggleReminder(task)" >
                     
                 </mat-slide-toggle>
             </td>
             
             <td>
                 <button mat-icon-button routerLink="../edit/{{task.id}}">
-                    <mat-icon>edit</mat-icon>
+                    <mat-icon #tooltip="matTooltip" matTooltip="Edit" matTooltipPosition="above">edit</mat-icon>
                 </button>
             
                 <button color="warn"  mat-icon-button (click)="alertTask(task)">
-                    <mat-icon color="warn">delete</mat-icon>
+                    <mat-icon #tooltip="matTooltip" matTooltip="Delete" matTooltipPosition="above" color="warn">delete</mat-icon>
                 </button>
 
-                <button *ngIf="task.image" mat-icon-button (click)="attachment(task.image)" color="primary">
-                    <mat-icon color="primary">attachment</mat-icon>
+                <button *ngIf="task.file" mat-icon-button (click)="attachment(task.file)" color="primary">
+                    <mat-icon #tooltip="matTooltip" matTooltip="View Attachment" matTooltipPosition="above" color="primary">attachment</mat-icon>
                     
                 </button>
             </td>
